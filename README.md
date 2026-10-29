@@ -1,3 +1,5 @@
+> Guided practice project (Nov–Dec 2024), built by following Ali Ahmad's YouTube tutorial. "ShopEasy" and the data are from the tutorial.
+
 MARKETING ANALYSIS
 
 TECHNOLOGIES USED: SQL, PYTHON, AND POWER BI
