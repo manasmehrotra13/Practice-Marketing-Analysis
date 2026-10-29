@@ -1,51 +1,38 @@
+# Marketing Analysis
+
 > Guided practice project (Nov–Dec 2024), built by following Ali Ahmad's YouTube tutorial. "ShopEasy" and the data are from the tutorial.
 
-MARKETING ANALYSIS
+An end-to-end marketing analysis for an online shop, "ShopEasy", using SQL, Python and Power BI.
 
-TECHNOLOGIES USED: SQL, PYTHON, AND POWER BI
+## The problem
+ShopEasy's customer engagement and conversions were falling, even though it was spending more on marketing. The goal was to find out why, and what to change.
 
-INTRODUCTION: ShopEasy, an online retail business, is facing reduced customer engagement and conversion rates despite launching several new online marketing campaigns. They are reaching out to you to help conduct a detailed analysis and identify areas for improvement in their marketing strategies.
+## KPIs
+- Conversion rate: the share of website visitors who buy
+- Engagement: clicks, likes and views on marketing content
+- Average order value
+- Customer feedback score: the average review rating
 
-KEY POINTS:
-1. Reduced Customer Engagement: The number of customer interactions and engagement with the site and marketing content has declined.
-2. Decreased Conversion Rates: Fewer site visitors are converting into paying customers.
-3. High Marketing Expenses: Significant investments in marketing campaigns are not yielding expected returns.
-4. Need for Customer Feedback Analysis: Understanding customer opinions about products and services is crucial for improving engagement and conversions
+## What I did
+- **SQL Server:** restored the database and wrote 5 cleaning queries. For example: removed duplicate customer journeys with `ROW_NUMBER()` in a CTE, filled missing durations with an average, joined customers to their location, fixed extra spaces in review text, split a combined "views-clicks" column, and grouped products into price bands with `CASE`.
+- **Python:** scored the sentiment of every review with pandas and NLTK's VADER, combined it with the star rating, and saved the result (1,363 reviews).
+- **Power BI:** built a calendar table and 4 pages: Overview, Conversion details (with a funnel), Social media details and Customer review details.
 
-KEY PERFORMANCE INDICATORS (KPIs):
-1. Conversion Rate: Percentage of website visitors who make a purchase.
-2. Customer Engagement Rate: Level of interaction with marketing content (clicks, likes, comments).
-3. Average Order Value (AOV): Average amount spent by a customer per transaction.
-4. Customer Feedback Score: Average rating from customer reviews.
+## What I found
+- Conversion bounced back to 10.34% in December, after falling to 5.08% in October.
+- January had the highest conversion (19.61%), helped by ski boots; May had the lowest (4.48%).
+- Engagement held steady, with a 15.45% click-through rate, even though social media views fell.
+- Views dropped from August onwards; blog posts got the most views, especially in March and May.
+- Reviews were mostly positive (275 positive vs 82 negative), and most ratings were 4 stars (140) or 5 stars (135).
 
-INSIGHTS:
-  
-OVERVIEW
-  1. Conversion rates rebounded in December, reaching 10.34%, following a dip to 5.08% in October, highlighting seasonal trends and the need for targeted interventions.
-  2. Customer engagement remains steady, with a 15.45% click-through rate despite declining social media views, indicating effective interaction from engaged users.
+## Tools
+SQL Server, SQL, Python (pandas, NLTK), Power BI, DAX.
 
-CONVERSION DETAILS
-  1. January recorded the highest conversion rate at 19.61%, driven by Ski Boots with a remarkable 150% conversion, showcasing the impact of seasonal demand and marketing strategies.
-  2. May had the lowest conversion rate at 4.48%, indicating a need to revisit marketing strategies or promotions during this period to improve performance.
-
-SOCIAL MEDIA DETAILS
-  1. Declining views from August onward suggest reduced audience engagement in the latter half of the year, highlighting a need for strategies to re-engage users.
-  2. Blog content drove the most views, especially in March and May, indicating its effectiveness in engaging the audience compared to social media and video content.
-
-CUSTOMER REVIEW DETAILS
-  1. Positive sentiment dominates with 275 reviews, reflecting overall strong customer satisfaction, despite some negative feedback (82 reviews), suggesting areas for improvement.
-  2. The majority of customer reviews are in higher ratings, with 140 reviews at 4 stars and 135 at 5 stars, indicating a generally positive customer experience.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Files
+- `customers.sql`, `products.sql`, `customer_journey.sql`, `customer_reviews.sql`, `engagement_data.sql`: the cleaning queries
+- `customer_reviews_enrichment.py`: the sentiment script
+- `customer_reviews_enrich.csv`: the reviews with their sentiment scores
+- `Marketing Analysis Dashboard.pbix` and `.pdf`: the Power BI report
+- `Calendar DAX query.txt`: the calendar table
+- `MarketingAnalytics.bak`: the database backup
+- short screen recordings of each page
